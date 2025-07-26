@@ -1,0 +1,429 @@
+<!-- submit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit - Journal of Applied Math Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Form Design - START */
+        :root {
+            --form-primary-color: #3d5a80;
+            --form-border-color: #d0d0d0;
+            --form-background-color: #f8f9fa;
+            --form-text-color: #333;
+            --form-label-color: #666;
+        }
+        .submission-form { margin-top: 2rem; }
+        .form-group { position: relative; margin-bottom: 1.75rem; }
+        .form-group .form-control {
+            width: 100%; padding: 12px 15px; font-size: 1rem; color: var(--form-text-color);
+            background-color: var(--form-background-color); border: 1px solid var(--form-border-color);
+            border-radius: 8px; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-group .form-control:focus {
+            outline: none; border-color: var(--form-primary-color);
+            box-shadow: 0 0 0 3px rgba(61, 90, 128, 0.2);
+        }
+        .form-group label {
+            position: absolute; top: 13px; left: 16px; font-size: 1rem; color: var(--form-label-color);
+            background-color: var(--form-background-color); padding: 0 5px;
+            pointer-events: none; transition: all 0.2s ease;
+        }
+        .form-group .form-control:focus + label,
+        .form-group .form-control:not(:placeholder-shown) + label {
+            top: -10px; left: 12px; font-size: 0.8rem; color: var(--form-primary-color);
+        }
+        .form-group select.form-control:focus + label,
+        .form-group select.form-control:valid + label {
+             top: -10px; left: 12px; font-size: 0.8rem; color: var(--form-primary-color);
+        }
+        .form-group select.form-control {
+            appearance: none; -webkit-appearance: none; -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 15px center; background-size: 1em;
+        }
+        .file-upload-group { margin-top: 1rem; }
+        .file-upload-group > label {
+            position: static; display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333; font-size: 1rem;
+        }
+        .file-upload-wrapper {
+            position: relative; border: 2px dashed var(--form-border-color); border-radius: 8px;
+            padding: 2rem; text-align: center; background-color: var(--form-background-color);
+            cursor: pointer; transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .file-upload-wrapper:hover { border-color: var(--form-primary-color); background-color: #eef2f7; }
+        .file-upload-wrapper input[type="file"] {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;
+        }
+        .file-upload-display {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--form-label-color);
+        }
+        .file-upload-icon { font-size: 2.5rem; color: var(--form-primary-color); margin-bottom: 1rem; }
+        .file-upload-text { font-size: 1rem; font-weight: 500; }
+        .file-name-display { margin-top: 0.75rem; font-weight: 600; color: var(--form-primary-color); font-family: monospace; }
+        .submission-form .btn-primary {
+            display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+            width: 100%; padding: 15px; font-size: 1.1rem; border-radius: 8px;
+        }
+        /* Modern Form Design - END */
+    </style>
+    
+    <!-- STYLES FOR LAYOUT ADJUSTMENTS - START -->
+    <style>
+        /* 1. Center the main content */
+        .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+        
+        /* 2. Constrain the form width */
+        .form-wrapper { max-width: 750px; margin-left: auto; margin-right: auto; }
+
+        /* 3. Guideline icons */
+        .guideline-card .icon i { font-size: 3rem; margin-bottom: 1rem; }
+        
+        /* 4. Review Process steps */
+        .process-steps { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+        .step { display: flex; align-items: flex-start; gap: 1rem; }
+        .step-number {
+            flex-shrink: 0; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background-color: var(--form-primary-color); color: white;
+            font-weight: bold; font-size: 1.1rem;
+        }
+        .step-content h4 { margin-top: 0; margin-bottom: 0.25rem; }
+        .step-content p { margin: 0; color: #666; font-size: 0.9rem; }
+
+        /* 5. Centered guideline cards and download section */
+        .guideline-card {
+            text-align: center;
+            background-color: #000000; /* Corrected from black to light grey */
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .guideline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .template-download {
+            text-align: center;
+        }
+
+        /* === 6. NEW: Modern Download Button Styling === */
+        .btn-download {
+            background-color: #20c997; /* A vibrant, modern green */
+            color: white;
+            border: none;
+            border-radius: 50px; /* Pill shape for a modern look */
+            padding: 16px 40px; /* Bigger padding for a larger button */
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(32, 201, 151, 0.3); /* Subtle, colored shadow */
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .btn-download:hover {
+            background-color: #1baa85; /* Slightly darker green on hover */
+            transform: translateY(-3px); /* Lift effect */
+            box-shadow: 0 7px 25px rgba(32, 201, 151, 0.5); /* More pronounced shadow */
+        }
+    </style>
+    <!-- STYLES FOR LAYOUT ADJUSTMENTS - END -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <img src="images/Logos/main_logo.png" alt="JAMH Logo">
+                    </div>
+                    <div class="journal-title">
+                        Journal of Applied Math <span>Horizons</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="submit.html" class="active">Submit</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 40vh;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Submit Your <span>Research</span></h1>
+                <p>Share your applied mathematics discoveries with our global community</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="submit-container">
+                <div class="submit-content">
+                    <div class="section-title">
+                        <h2>Submission Guidelines</h2>
+                        <p>Please follow our requirements for manuscript preparation</p>
+                    </div>
+                    
+                    <div class="guidelines-grid">
+                        <div class="guideline-card">
+                            <div class="icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Manuscript Format</h3>
+                                <p>Submissions must be in LaTeX format using our journal template. The main text should be single-spaced with 1-inch margins.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <div class="icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Language</h3>
+                                <p>Articles must be written in clear, correct English. Non-native speakers are encouraged to have their manuscripts checked by a native speaker.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <div class="icon">
+                                <i class="fas fa-list-ol"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Structure</h3>
+                                <p>Manuscripts should include: Title, Abstract, Keywords, Introduction, Main Results, Proofs, Conclusion, and References.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <div class="icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Figures & Tables</h3>
+                                <p>All figures must be in high resolution (at least 300 dpi). Tables should be editable and not embedded in figures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="template-download">
+                        <h3>Download LaTeX Template</h3>
+                        <p>Use our official template for preparing your manuscript</p>
+                        <!-- MODIFIED BUTTON: Changed class from btn-primary to btn-download -->
+                        <button id="download-template" class="btn btn-download">
+                            <i class="fas fa-download"></i> Download Template
+                        </button>
+                    </div>
+                    
+                    <!-- WRAPPER ADDED AROUND FORM FOR WIDTH CONTROL -->
+                    <div class="form-wrapper"> 
+                        <div class="section-title">
+                            <h2>Submit Your Manuscript</h2>
+                            <p>Complete the form below to submit your research</p>
+                        </div>
+                        
+                        <form id="submission-form" class="submission-form" novalidate>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <input type="text" id="title" name="title" class="form-control" required placeholder=" ">
+                                    <label for="title">Title of Manuscript</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="text" id="author" name="author" class="form-control" required placeholder=" ">
+                                    <label for="author">Author Name</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" class="form-control" required placeholder=" ">
+                                    <label for="email">Email Address</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <select id="category" name="category" class="form-control" required>
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="numerical">Numerical Analysis</option>
+                                        <option value="optimization">Optimization</option>
+                                        <option value="biology">Mathematical Biology</option>
+                                        <option value="physics">Computational Physics</option>
+                                        <option value="finance">Financial Mathematics</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <label for="category">Category</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="abstract" name="abstract" rows="5" class="form-control" required placeholder=" "></textarea>
+                                <label for="abstract">Abstract</label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" id="keywords" name="keywords" class="form-control" required placeholder=" ">
+                                <label for="keywords">Keywords (comma separated)</label>
+                            </div>
+                            
+                            <div class="form-group file-upload-group">
+                                <label for="manuscript">Upload Manuscript (PDF or LaTeX)</label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="manuscript" name="manuscript" accept=".pdf,.tex" required>
+                                    <div class="file-upload-display">
+                                        <span class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                                        <span class="file-upload-text">Click to choose a file or drag and drop</span>
+                                        <span id="file-name" class="file-name-display"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="comments" name="comments" rows="3" class="form-control" placeholder=" "></textarea>
+                                <label for="comments">Additional Comments</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Manuscript
+                            </button>
+                        </form>
+                    </div> <!-- END .form-wrapper -->
+                </div>
+                
+                <div class="submit-sidebar">
+                    <div class="sidebar-box">
+                        <h3>Submission Checklist</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Manuscript in LaTeX format</li>
+                            <li><i class="fas fa-check"></i> Abstract included (150-250 words)</li>
+                            <li><i class="fas fa-check"></i> Keywords provided</li>
+                            <li><i class="fas fa-check"></i> Figures in high resolution</li>
+                            <li><i class="fas fa-check"></i> References properly formatted</li>
+                            <li><i class="fas fa-check"></i> Cover letter included</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-box">
+                        <h3>Review Process</h3>
+                        <p>Our peer review process typically takes 4-6 weeks. You will receive notification of acceptance, revision requests, or rejection.</p>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Initial Screening</h4>
+                                    <p>Editor checks for scope and completeness</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Peer Review</h4>
+                                    <p>Assigned to 2-3 experts in the field</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Decision</h4>
+                                    <p>Accept, Revise, or Reject</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Journal Info</h3>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About JAMH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Editorial Board</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Author Guidelines</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Peer Review Process</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ethics Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Current Issue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Archives</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Special Issues</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Forthcoming Papers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> MathSciNet</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> zbMATH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> arXiv</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AMS Journals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mathematical Societies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Department of Applied Mathematics</li>
+                        <li><i class="fas fa-university"></i> Institute of Advanced Studies</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Princeton, NJ 08544</li>
+                        <li><i class="fas fa-envelope"></i> contact@jamh.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (609) 555-1234</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Journal of Applied Math Horizons. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // This script handles the file name display for the custom file input.
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileInput = document.getElementById('manuscript');
+        const fileNameDisplay = document.getElementById('file-name');
+        const fileUploadText = document.querySelector('.file-upload-text');
+
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files.length > 0) {
+                    fileNameDisplay.textContent = this.files[0].name;
+                    if(fileUploadText) fileUploadText.style.display = 'none'; 
+                } else {
+                    fileNameDisplay.textContent = '';
+                    if(fileUploadText) fileUploadText.style.display = 'block';
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

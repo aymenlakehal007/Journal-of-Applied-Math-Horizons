@@ -1,0 +1,313 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Journal of Applied Math Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- NEW STYLES for Layout and Scrolling Editorial Board - START -->
+    <style>
+        /* Consistent Centered Layout */
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Keyframes for the scrolling animation */
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                /* Move the inner container left by the width of the original set of cards */
+                transform: translateX(calc(-100% - 1.5rem * 3)); /* 100% of original content + 3 gaps */
+            }
+        }
+
+        /* The main container for the scroller */
+        .scroller-container {
+            max-width: 100%;
+            overflow: hidden;
+            /* Creates a nice fade-out effect on the left and right edges */
+            -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+        }
+
+        /* The inner track that holds and animates the cards */
+        .scroller-inner {
+            display: flex;
+            gap: 1.5rem; /* Space between cards */
+            padding-block: 1rem; /* Vertical space for the "pop" effect */
+            width: fit-content; /* Let the container size itself to its content */
+            animation: scroll 25s linear infinite; /* Adjust '25s' to change speed */
+        }
+        
+        /* Pause the animation when the user hovers over the scroller area */
+        .scroller-container:hover .scroller-inner {
+            animation-play-state: paused;
+        }
+
+        /* Style for individual editor cards within the scroller */
+        .scroller-container .editor-card {
+            flex-shrink: 0; /* Prevents cards from shrinking */
+            width: 300px; /* Give cards a fixed width */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for the "pop" */
+        }
+
+        /* The "pop" and "stand" effect on hover */
+        .scroller-container .editor-card:hover {
+            transform: translateY(-10px); /* Lifts the card up */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+
+    </style>
+    <!-- NEW STYLES for Layout and Scrolling Editorial Board - END -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <img src="images/Logos/main_logo.png" alt="JAMH Logo">
+                    </div>
+                    <div class="journal-title">
+                        Journal of Applied Math <span>Horizons</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 40vh;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>About Our <span>Journal</span></h1>
+                <p>Committed to excellence in applied mathematics research</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission</h2>
+                <p>Advancing applied mathematics through rigorous research</p>
+            </div>
+            
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>The Journal of Applied Math Horizons is dedicated to publishing high-quality research in applied mathematics, computational methods, and interdisciplinary applications. Since our establishment in 1992, we have maintained the highest standards of mathematical scholarship.</p>
+                    
+                    <p>Our editorial board comprises leading applied mathematicians from around the world, ensuring rigorous peer review and timely publication of groundbreaking research. We are committed to advancing mathematical knowledge and fostering collaboration among researchers globally.</p>
+                </div>
+                
+                <div class="mission-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">31</div>
+                        <div class="stat-label">Volumes Published</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1200+</div>
+                        <div class="stat-label">Articles Indexed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Days to First Decision</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Acceptance Rate</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">
+                <h2>Editorial Board</h2>
+                <p>Leading experts guiding our publication process</p>
+            </div>
+            
+            <!-- MODIFIED EDITORIAL BOARD SECTION - START -->
+            <div class="scroller-container">
+                <div class="scroller-inner">
+                    <!-- Original set of editors -->
+                    <div class="editor-card">
+                        <div class="editor-image">
+                            <img src="images/issam.jpg" alt="Issam Bendib"style="width: 300px;">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Dr. Issam Bendib</h3>
+                            <p class="position">Editor-in-Chief</p>
+                            <p class="institution">Constentine 1, Department of Mathematics</p>
+                            <p class="specialization">Mathematical Modeling, Numerical Analysis</p>
+                        </div>
+                    </div>
+                    <div class="editor-card">
+                        <div class="editor-image">
+                            <img src="images/aymen.jpeg" alt="Lakehal Aymen" style="width: 300px;">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Dr. Aymen Lakehal </h3>
+                            <p class="position">Managing Editor</p>
+                            <p class="institution">University of Tlemcen</p>
+                            <p class="specialization">Fractional calculus</p>
+                        </div>
+                    </div>
+                    <div class="editor-card">
+                        <div class="editor-image">
+                            <img src="images/issam.jpg" alt="Issam Bendib"style="width: 300px;">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Dr. Issam Bendib</h3>
+                            <p class="position">Editor-in-Chief</p>
+                            <p class="institution">Constentine 1, Department of Mathematics</p>
+                            <p class="specialization">Mathematical Modeling, Numerical Analysis</p>
+                        </div>
+                    </div>
+                          <div class="editor-card">
+                        <div class="editor-image">
+                            <img src="images/aymen.jpeg" alt="Lakehal Aymen" style="width: 300px;">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Dr. Aymen Lakehal </h3>
+                            <p class="position">Managing Editor</p>
+                            <p class="institution">University of Tlemcen, Department of Mathematics</p>
+                            <p class="specialization">Fractional calculus</p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicated set for seamless looping effect -->
+                          <div class="editor-card">
+                        <div class="editor-image">
+                            <img src="images/aymen.jpeg" alt="Lakehal Aymen" style="width: 300px;">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Dr. Aymen Lakehal </h3>
+                            <p class="position">Managing Editor</p>
+                            <p class="institution">University of Tlemcen</p>
+                            <p class="specialization">Fractional calculus</p>
+                        </div>
+                    </div>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- MODIFIED EDITORIAL BOARD SECTION - END -->
+            
+            <div class="section-title">
+                <h2>Journal Policies</h2>
+                <p>Our commitment to academic integrity</p>
+            </div>
+            
+            <div class="policies-grid">
+                <div class="policy-card">
+                    <div class="icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Ethics Policy</h3>
+                        <p>We maintain the highest standards of publication ethics and follow COPE guidelines for all editorial processes.</p>
+                    </div>
+                </div>
+                
+                <div class="policy-card">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Peer Review</h3>
+                        <p>All submissions undergo double-blind peer review by experts in the relevant field.</p>
+                    </div>
+                </div>
+                
+                <div class="policy-card">
+                    <div class="icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Copyright</h3>
+                        <p>Authors retain copyright while granting the journal exclusive publication rights.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Journal Info</h3>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About JAMH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Editorial Board</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Author Guidelines</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Peer Review Process</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ethics Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Current Issue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Archives</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Special Issues</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Forthcoming Papers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> MathSciNet</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> zbMATH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> arXiv</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AMS Journals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mathematical Societies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Department of Applied Mathematics</li>
+                        <li><i class="fas fa-university"></i> Institute of Advanced Studies</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Princeton, NJ 08544</li>
+                        <li><i class="fas fa-envelope"></i> contact@jamh.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (609) 555-1234</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Journal of Applied Math Horizons. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

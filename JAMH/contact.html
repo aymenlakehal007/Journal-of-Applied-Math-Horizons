@@ -1,0 +1,318 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Journal of Applied Math Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modern Form & Layout Styles - START -->
+    <style>
+        /*
+        * This block contains all the new styles for the modernized form and layout.
+        */
+        :root {
+            --form-primary-color: #3d5a80;
+            --form-border-color: #d0d0d0;
+            --form-background-color: #f8f9fa;
+            --form-text-color: #333;
+            --form-label-color: #666;
+        }
+
+        /* === 1. Layout Centering for Readability === */
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        /* === 2. REVISED "Get In Touch" Section (Horizontal Layout) === */
+        .contact-card {
+            display: flex; /* Aligns icon and content horizontally */
+            align-items: flex-start; /* Aligns icon to the top of the text block */
+            gap: 1.5rem; /* Creates space between icon and text */
+            text-align: left; /* Ensures text is left-aligned */
+        }
+
+        .contact-card .icon {
+            flex-shrink: 0; /* Prevents icon from shrinking */
+        }
+        
+        .contact-card .icon i {
+            font-size: 2.5rem; /* Made icons a little smaller */
+            margin-bottom: 0; /* Removed bottom margin as it's no longer needed */
+            color: var(--form-primary-color);
+            width: 35px; /* Gives icons a consistent space */
+            text-align: center;
+        }
+        
+        .contact-card .content h3,
+        .contact-card .content p {
+            margin: 0 0 0.5rem 0; /* Resets margins for better alignment */
+        }
+
+        .contact-card .content p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* === 3. Modern Contact Form Styling === */
+        .message-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            color: var(--form-text-color);
+            background-color: var(--form-background-color);
+            border: 1px solid var(--form-border-color);
+            border-radius: 8px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .form-group .form-control:focus {
+            outline: none;
+            border-color: var(--form-primary-color);
+            box-shadow: 0 0 0 3px rgba(61, 90, 128, 0.2);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 13px;
+            left: 16px;
+            font-size: 1rem;
+            color: var(--form-label-color);
+            background-color: #fff;
+            padding: 0 5px;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-group .form-control:focus + label,
+        .form-group .form-control:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 12px;
+            font-size: 0.8rem;
+            color: var(--form-primary-color);
+        }
+        
+        .message-form .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+    </style>
+    <!-- Modern Form & Layout Styles - END -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <img src="images/Logos/main_logo.png" alt="JAMH Logo">
+                    </div>
+                    <div class="journal-title">
+                        Journal of Applied Math <span>Horizons</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 40vh;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Contact <span>Us</span></h1>
+                <p>We're here to help with your mathematical inquiries</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- This container now correctly holds BOTH the info and the form -->
+            <div class="contact-container">
+                <!-- "Send a Message" form section (moved back to its correct location) -->
+                <div class="contact-form">
+                    <div class="section-title">
+                        <h2>Send Us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you</p>
+                    </div>
+                    
+                    <form class="message-form" novalidate>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" class="form-control" required placeholder=" ">
+                                <label for="name">Your Name</label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="form-control" required placeholder=" ">
+                                <label for="email">Email Address</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" class="form-control" required placeholder=" ">
+                            <label for="subject">Subject</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="6" class="form-control" required placeholder=" "></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                <!-- "Get In Touch" info section -->
+                <div class="contact-info">
+                    <div class="section-title">
+                        <h2>Get In Touch</h2>
+                        <p>We welcome your questions, comments, and feedback</p>
+                    </div>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Address</h3>
+                                <p>Department of Applied Mathematics</p>
+                                <p>Institute of Advanced Studies</p>
+                                <p>Princeton, NJ 08544</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Email</h3>
+                                <p>General Inquiries: contact@jamh.org</p>
+                                <p>Submissions: submit@jamh.org</p>
+                                <p>Editorial: editorial@jamh.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Phone</h3>
+                                <p>Main Office: +1 (609) 555-1234</p>
+                                <p>Editorial Office: +1 (609) 555-1235</p>
+                                <p>Fax: +1 (609) 555-1236</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Office Hours</h3>
+                                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                <p>Saturday - Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Journal Info</h3>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About JAMH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Editorial Board</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Author Guidelines</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Peer Review Process</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ethics Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Current Issue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Archives</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Special Issues</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Forthcoming Papers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> MathSciNet</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> zbMATH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> arXiv</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AMS Journals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mathematical Societies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Department of Applied Mathematics</li>
+                        <li><i class="fas fa-university"></i> Institute of Advanced Studies</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Princeton, NJ 08544</li>
+                        <li><i class="fas fa-envelope"></i> contact@jamh.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (609) 555-1234</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Journal of Applied Math Horizons. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

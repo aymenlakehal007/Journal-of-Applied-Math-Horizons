@@ -1,0 +1,344 @@
+<!-- articles.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Journal of Applied Math Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Filter Section Styles */
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 1.5rem; /* Space between search box and filters */
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3.5rem;
+            padding: 0.5rem;
+            background-color: #000000; /* Light background for the section */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-box {
+            flex-grow: 1; /* Allows search box to take available space */
+            display: flex;
+            max-width: 400px; /* Limit search box width */
+            position: relative;
+        }
+
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 12px 45px 12px 20px; /* Adjust padding for icon */
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #343a40;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input[type="text"]::placeholder {
+            color: #6c757d;
+        }
+
+        .search-box input[type="text"]:focus {
+            outline: none;
+            border-color: #01060d;
+            box-shadow: 0 0 0 3px rgba(61, 90, 128, 0.25);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #3d5a80;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s ease;
+        }
+
+        .search-box button:hover {
+            color: #5e2a51;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <img src="images/Logos/main_logo.png" alt="JAMH Logo">
+                    </div>
+                    <div class="journal-title">
+                        Journal of Applied Math <span>Horizons</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html" class="active">Articles</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 40vh;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Published <span>Articles</span></h1>
+                <p>Browse our extensive collection of applied mathematics research</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Modernized Filter Section -->
+            <div class="filter-section">
+                <div class="search-box">
+                    <input type="text" placeholder="Search articles...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filters">
+                    <select class="form-control">
+                        <option value="">All Categories</option>
+                        <option value="numerical">Numerical Analysis</option>
+                        <option value="optimization">Optimization</option>
+                        <option value="biology">Mathematical Biology</option>
+                        <option value="physics">Computational Physics</option>
+                        <option value="finance">Financial Mathematics</option>
+                    </select>
+                    <select class="form-control">
+                        <option value="date">Sort by Date</option>
+                        <option value="citations">Sort by Citations</option>
+                        <option value="downloads">Sort by Downloads</option>
+                    </select>
+                </div>
+            </div>
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <div class="article-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Machine Learning">
+                    </div>
+                    <div class="card-header">
+                        <h3>Machine Learning Approaches to Partial Differential Equations</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-user"></i> Dr. Sarah Chen</span>
+                            <span><i class="fas fa-calendar"></i> Vol. 31, Issue 3</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="abstract">This paper explores novel neural network architectures for solving high-dimensional PDEs, demonstrating superior performance compared to traditional numerical methods in complex domains.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-small">Read Full Article</a>
+                        <div class="stats">
+                            <span><i class="fas fa-eye"></i> 1,245</span>
+                            <span><i class="fas fa-download"></i> 876</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="article-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Optimization">
+                    </div>
+                    <div class="card-header">
+                        <h3>Optimization Algorithms for Large-Scale Data Analysis</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-user"></i> Prof. Michael Rodriguez</span>
+                            <span><i class="fas fa-calendar"></i> Vol. 31, Issue 3</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="abstract">We present a new class of stochastic optimization methods that achieve faster convergence rates for non-convex problems with applications in machine learning and signal processing.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-small">Read Full Article</a>
+                        <div class="stats">
+                            <span><i class="fas fa-eye"></i> 987</span>
+                            <span><i class="fas fa-download"></i> 654</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="article-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Epidemic Modeling">
+                    </div>
+                    <div class="card-header">
+                        <h3>Mathematical Modeling of Epidemic Spread</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-user"></i> Dr. Elena Kowalski</span>
+                            <span><i class="fas fa-calendar"></i> Vol. 31, Issue 2</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="abstract">This work develops a new compartmental model that incorporates behavioral responses and network structures to better predict epidemic dynamics in heterogeneous populations.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-small">Read Full Article</a>
+                        <div class="stats">
+                            <span><i class="fas fa-eye"></i> 1,567</span>
+                            <span><i class="fas fa-download"></i> 1,234</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="article-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Quantum Computing">
+                    </div>
+                    <div class="card-header">
+                        <h3>Quantum Algorithms for Linear Systems</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-user"></i> Dr. James Wilson</span>
+                            <span><i class="fas fa-calendar"></i> Vol. 31, Issue 1</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="abstract">We develop new quantum algorithms for solving large systems of linear equations with applications in computational chemistry and optimization.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-small">Read Full Article</a>
+                        <div class="stats">
+                            <span><i class="fas fa-eye"></i> 1,876</span>
+                            <span><i class="fas fa-download"></i> 1,543</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="article-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Theory">
+                    </div>
+                    <div class="card-header">
+                        <h3>Graph Neural Networks for Complex Networks</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-user"></i> Prof. Maria Garcia</span>
+                            <span><i class="fas fa-calendar"></i> Vol. 30, Issue 4</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="abstract">This paper introduces a novel graph neural network architecture designed for analyzing complex network structures with applications in social networks and biological systems.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-small">Read Full Article</a>
+                        <div class="stats">
+                            <span><i class="fas fa-eye"></i> 1,234</span>
+                            <span><i class="fas fa-download"></i> 987</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="article-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Financial Mathematics">
+                    </div>
+                    <div class="card-header">
+                        <h3>Risk Management in High-Frequency Trading</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-user"></i> Dr. Robert Thompson</span>
+                            <span><i class="fas fa-calendar"></i> Vol. 30, Issue 3</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="abstract">We present a new stochastic model for risk assessment in high-frequency trading environments with applications to portfolio optimization.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-small">Read Full Article</a>
+                        <div class="stats">
+                            <span><i class="fas fa-eye"></i> 1,567</span>
+                            <span><i class="fas fa-download"></i> 1,345</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-link active" style="color: white;">1</a>
+                <a href="#" class="page-link" style="color: white;">2</a>
+                <a href="#" class="page-link" style="color: white;">3</a>
+                <a href="#" class="page-link" style="color: white;">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Journal Info</h3>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About JAMH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Editorial Board</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Author Guidelines</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Peer Review Process</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ethics Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Current Issue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Archives</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Special Issues</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Forthcoming Papers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> MathSciNet</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> zbMATH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> arXiv</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AMS Journals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mathematical Societies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Department of Applied Mathematics</li>
+                        <li><i class="fas fa-university"></i> Institute of Advanced Studies</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Princeton, NJ 08544</li>
+                        <li><i class="fas fa-envelope"></i> contact@jamh.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (609) 555-1234</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Journal of Applied Math Horizons. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

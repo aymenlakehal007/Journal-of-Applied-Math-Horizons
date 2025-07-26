@@ -1,0 +1,293 @@
+<!-- authors.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors - Journal of Applied Math Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- NEW STYLES for Horizontal Author Grid - START -->
+    <style>
+        /* Consistent Centered Layout */
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* 1. The Grid Container */
+        .authors-grid {
+            display: grid;
+            /* Create a responsive grid that fits as many columns as possible.
+               Each column will be at least 320px wide but can grow. */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem; /* The space between the cards */
+        }
+
+        /* 2. Individual Author Card Styling */
+        .author-card {
+            background-color: #000000;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden; /* Keeps the image corners rounded */
+            display: flex; /* Important for vertical alignment of content */
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+        }
+        
+        /* 3. The "Pop" Effect on Hover */
+        .author-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .author-card .author-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .author-card .author-info {
+            padding: 1.5rem;
+            flex-grow: 1; /* Allows this section to fill available space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-card .author-stats {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #b8b3fa;
+        }
+        
+        /* This pushes the button to the bottom of the card */
+        .author-card .btn {
+            margin-top: auto;
+        }
+
+        /* Add this new style for the View Profile button */
+        .btn-small {
+            color: white;
+        }
+    </style>
+    <!-- NEW STYLES for Horizontal Author Grid - END -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <img src="images/Logos/main_logo.png" alt="JAMH Logo">
+                    </div>
+                    <div class="journal-title">
+                        Journal of Applied Math <span>Horizons</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="authors.html" class="active">Authors</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 40vh;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Our <span>Authors</span></h1>
+                <p>Leading applied mathematicians contributing to our journal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Authors</h2>
+                <p>Distinguished mathematicians who have published with us</p>
+            </div>
+            
+            <div class="authors-grid">
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="images/issam.jpg">
+                    </div>
+                    <div class="author-info">
+                        <h3>Dr. Issam Bendib</h3>
+                        <p class="institution">Constentine 1, Department of Mathematics</p>
+                        <p class="specialization">Mathematical Modeling, Numerical Analysis</p>
+                        <div class="author-stats">
+                            <span><i class="fas fa-book"></i> 17 Publications</span>
+                            <span><i class="fas fa-users"></i> 26 Citations</span>
+                        </div>
+                        <a href="#" class="btn btn-small">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="images/aymen.jpeg">
+                    </div>
+                    <div class="author-info">
+                        <h3>Dr. Aymen Lakehal</h3>
+                        <p class="institution">Tlemcen University</p>
+                        <p class="specialization">Fractional Calculus, Group Theory</p>
+                        <div class="author-stats">
+                            <span><i class="fas fa-book"></i> 2 Publications</span>
+                            <span><i class="fas fa-users"></i> 6 Citations</span>
+                        </div>
+                        <a href="#" class="btn btn-small">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Elena Kowalski">
+                    </div>
+                    <div class="author-info">
+                        <h3>Dr. Elena Kowalski</h3>
+                        <p class="institution">Princeton Institute</p>
+                        <p class="specialization">Mathematical Biology, Epidemiology</p>
+                        <div class="author-stats">
+                            <span><i class="fas fa-book"></i> 15 Publications</span>
+                            <span><i class="fas fa-users"></i> 1,234 Citations</span>
+                        </div>
+                        <a href="#" class="btn btn-small">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Prof. Maria Garcia">
+                    </div>
+                    <div class="author-info">
+                        <h3>Prof. Maria Garcia</h3>
+                        <p class="institution">University of Cambridge</p>
+                        <p class="specialization">Network Theory, Graph Algorithms</p>
+                        <div class="author-stats">
+                            <span><i class="fas fa-book"></i> 10 Publications</span>
+                            <span><i class="fas fa-users"></i> 987 Citations</span>
+                        </div>
+                        <a href="#" class="btn btn-small">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. James Wilson">
+                    </div>
+                    <div class="author-info">
+                        <h3>Dr. James Wilson</h3>
+                        <p class="institution">ETH Zurich</p>
+                        <p class="specialization">Quantum Computing, Linear Algebra</p>
+                        <div class="author-stats">
+                            <span><i class="fas fa-book"></i> 7 Publications</span>
+                            <span><i class="fas fa-users"></i> 654 Citations</span>
+                        </div>
+                        <a href="#" class="btn btn-small">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Robert Thompson">
+                    </div>
+                    <div class="author-info">
+                        <h3>Dr. Robert Thompson</h3>
+                        <p class="institution">University of Oxford</p>
+                        <p class="specialization">Financial Mathematics, Stochastic Processes</p>
+                        <div class="author-stats">
+                            <span><i class="fas fa-book"></i> 9 Publications</span>
+                            <span><i class="fas fa-users"></i> 876 Citations</span>
+                        </div>
+                        <a href="#" class="btn btn-small">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <div class="container">
+                    <div class="cta-content">
+                        <h3>Become an Author</h3>
+                        <p>Join our community of distinguished mathematicians by submitting your research</p>
+                        <a href="submit.html" class="btn btn-primary">Submit Your Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Journal Info</h3>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About JAMH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Editorial Board</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Author Guidelines</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Peer Review Process</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ethics Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Current Issue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Archives</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Special Issues</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Forthcoming Papers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> MathSciNet</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> zbMATH</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> arXiv</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AMS Journals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mathematical Societies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Department of Applied Mathematics</li>
+                        <li><i class="fas fa-university"></i> Institute of Advanced Studies</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Princeton, NJ 08544</li>
+                        <li><i class="fas fa-envelope"></i> contact@jamh.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (609) 555-1234</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Journal of Applied Math Horizons. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
